@@ -73,9 +73,9 @@ useradd -r -s /sbin/nologin -d ${NGX_WWW_ROOT} -m -k no www
 #
 # install php
 # 下载PHP很慢的话可以考虑用ADD的方式
+# ADD php-$PHP_VERSION.tar.gz /home/nginx-php
 RUN set -x && \
 curl -Lk https://php.net/distributions/php-$PHP_VERSION.tar.gz | gunzip | tar x -C /home/nginx-php && \
-# ADD php-$PHP_VERSION.tar.gz /home/nginx-php
 cd /home/nginx-php/php-$PHP_VERSION && \
 ./configure --prefix=/usr/local/php \
 --with-config-file-path=/usr/local/php/etc \
